@@ -1,0 +1,6 @@
+https://www.npmjs.com/package/openzeppelin-solidity
+https://trufflesuite.com/
+
+
+mongodb user = e-commercedb
+password = QSqeTgPz4YJSMaPJ
