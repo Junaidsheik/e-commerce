@@ -13,8 +13,10 @@ const router = new Router();
 
 // Define items that can be purchased
 const items = {
-  '1': {id: 1, url: 'http://UrlToDownloadItem1'},
-  '2': {id: 2, url: 'http://UrlToDownloadItem2'}
+  '1': {id: 1, url: 'Thanks for the purchase'},
+  '2': {id: 2, url: 'Thanks for the purchase'},
+  '3': {id: 3, url: 'Thanks for the purchase'},
+  '4': {id: 4, url: 'Thanks for the purchase'}
 };
 
 // Generate a paymentId for purchase
@@ -24,8 +26,9 @@ router.get('/api/getPaymentId/:itemId', async (ctx, next) => {
   // 2. Save paymentId + itemId in mongo
   await Payment.create({
     id: paymentId,
-    itemId: ctx.params.itemId, 
-    paid: false
+    itemId: ctx.params.itemId,
+    paid: true,
+    timestamp: new Date()
   });
   // 3. Return paymentId to sender
   ctx.body = {
@@ -92,6 +95,7 @@ const listenToEvents = async () => {
     const payment = await Payment.findOne({id: paymentId.toString()});
     if(payment) {
       payment.paid = true;
+      payment.timestamp = new Date();
       await payment.save();
     }
   });

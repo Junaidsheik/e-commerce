@@ -19,6 +19,10 @@ const paymentSchema = new mongoose.Schema({
   id: String,
   itemId: String,
   paid: Boolean,
+  timestamp: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 const Payment = mongoose.model('Payment', paymentSchema);
@@ -26,3 +30,4 @@ const Payment = mongoose.model('Payment', paymentSchema);
 module.exports = {
   Payment,
 };
+
