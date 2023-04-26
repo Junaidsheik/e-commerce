@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 (async () => {
   try {
     await mongoose.connect(
-      'mongodb+srv://mkm1321:Qwerty123@cluster0.gmyiolm.mongodb.net/?retryWrites=true&w=majority',
+      'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // Your mogngo DB Atlas key
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
